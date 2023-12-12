@@ -20,8 +20,39 @@ body {
 
 .container {
   margin: auto;
-  background-color: #352f44;
-  width: 35rem;
-  height: 50rem;
+  background-color: #9690a5;
+  border: 3px solid #5c5963;
+  border-radius: 10px;
+  width: 34rem;
+  height: 45rem;
   padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.row1 {
+  background-color: #faf0e6;
+  border: none;
+  border-radius: 10px;
+  padding: 1rem;
+}
+
+.btn {
+  background-color: #b9b4c7;
+  width: 5rem;
+  height: 4.5rem;
+  border-radius: 1rem;
+}
+
+.btnblu {
+  background-color: #b3e4eb;
+}
+
+.btnOrange {
+  background-color: #ffb534;
+}
+
+.btnZero {
+  width: 13rem;
 }
