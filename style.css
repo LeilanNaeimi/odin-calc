@@ -1,3 +1,27 @@
 * {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Courier New", Courier, monospace;
+  font-weight: 400;
+  font-size: 5rem;
+  background-color: #fbf6ee;
+  color: #352f44;
+  display: flex;
+  min-height: 100vh;
+}
+
+.container {
+  margin: auto;
+  background-color: #352f44;
+  width: 35rem;
+  height: 50rem;
+  padding: 2rem;
 }
