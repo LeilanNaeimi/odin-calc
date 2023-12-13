@@ -1,53 +1,51 @@
-// const btnAC = document.querySelector(".btnAC");
-// const btnNeg = document.querySelector(".btnNeg");
-// const btnPercent = document.querySelector(".btnPercent");
-// const btnDivision = document.querySelector(".btnDivision");
-
-// const btn7 = document.querySelector(".btn7");
-// const btn8 = document.querySelector(".btn8");
-// const btn9 = document.querySelector(".btn9");
-// const btnStar = document.querySelector(".btnStar");
-
-// const btn4 = document.querySelector(".btn4");
-// const btn5 = document.querySelector(".btn5");
-// const btn6 = document.querySelector(".btn6");
-// const btnMinus = document.querySelector(".btnMinus");
-
-// const btn1 = document.querySelector(".btn1");
-// const btn2 = document.querySelector(".btn2");
-// const btn3 = document.querySelector(".btn3");
-// const btnPlus = document.querySelector(".btnPlus");
-
-// const btn0 = document.querySelector(".btn0");
-// const btnDot = document.querySelector(".btnDot");
-// const btnEqual = document.querySelector(".btnEqual");
-
-const screen = document.querySelector(".screen");
+let display = document.getElementById("display");
 const buttons = document.querySelectorAll(".btn");
+const digits = document.querySelectorAll("[data-number]");
+const btnClear = document.getElementById("btnAC");
+const operators = document.querySelectorAll("[data-operator]");
 
-const operators = ["btn+", "btn-", "btn*", "btn/", "btn%"];
+function appendToDisplay(value) {
+  display.value += value;
+}
 
-let digit = 0;
-let digitStr = "";
+function calculate() {
+  try {
+    const result = evaluateExpression(display.value);
+    display.value = result;
+  } catch (error) {
+    display.value = "Error";
+  }
+}
 
-buttons.forEach(function (button) {
-  button.addEventListener("click", function (e) {
-    digit = button.innerHTML;
+function evaluateExpression(expression) {
+  const operators = /[+\-*\/]/;
+  const parts = expression.split(operators);
 
-    console.log(`btn${digit}`);
+  if (parts.length !== 2) {
+    throw new Error("Invalid expression");
+  }
 
-    switch (e.target.id) {
-      case `btn${digit}`:
-        screen.innerHTML = `${digit}`;
-        console.log(operators);
-        // while (e.target.id !== operators) {
-        //   digitStr += +`${digit}`;
-        //   console.log(digitStr);
-        // }
+  const operand1 = parseFloat(parts[0]);
+  const operand2 = parseFloat(parts[1]);
+  const operator = expression.match(operators)[0];
 
-        break;
-      default:
-        break;
-    }
-  });
-});
+  switch (operator) {
+    case "+":
+      return operand1 + operand2;
+    case "-":
+      return operand1 - operand2;
+    case "*":
+      return operand1 * operand2;
+    case "/":
+      if (operand2 === 0) {
+        throw new Error("Division by zero");
+      }
+      return operand1 / operand2;
+    default:
+      throw new Error("Invalid operator");
+  }
+}
+
+function clearDisplay() {
+  display.value = "";
+}
