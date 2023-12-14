@@ -1,8 +1,4 @@
 let display = document.getElementById("display");
-const buttons = document.querySelectorAll(".btn");
-const digits = document.querySelectorAll("[data-number]");
-const btnClear = document.getElementById("btnAC");
-const operators = document.querySelectorAll("[data-operator]");
 
 function appendToDisplay(value) {
   display.value += value;
