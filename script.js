@@ -18,6 +18,7 @@ function calculate() {
 }
 
 function evaluateExpression(expression) {
+  //regular expression
   const operators = /[+\-*\/]/;
   const parts = expression.split(operators);
 
