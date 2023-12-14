@@ -22,10 +22,6 @@ function evaluateExpression(expression) {
   const operators = /[+\-*\/]/;
   const parts = expression.split(operators);
 
-  if (parts.length !== 2) {
-    throw new Error("Invalid expression");
-  }
-
   const operand1 = parseFloat(parts[0]);
   const operand2 = parseFloat(parts[1]);
   const operator = expression.match(operators)[0];
@@ -43,7 +39,7 @@ function evaluateExpression(expression) {
       }
       return operand1 / operand2;
     default:
-      throw new Error("Invalid operator");
+      throw new Error("Error");
   }
 }
 
