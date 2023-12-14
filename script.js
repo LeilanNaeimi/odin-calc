@@ -20,11 +20,15 @@ function calculate() {
 function evaluateExpression(expression) {
   //regular expression
   const operators = /[+\-*\/]/;
+  // console.log(operators);
   const parts = expression.split(operators);
-
+  // console.log(parts);
   const operand1 = parseFloat(parts[0]);
+  // console.log(operand1);
   const operand2 = parseFloat(parts[1]);
+  // console.log(operand2);
   const operator = expression.match(operators)[0];
+  // console.log(operator);
 
   switch (operator) {
     case "+":
