@@ -1,4 +1,4 @@
-Calculator
+# Calculator
 
 https://leilannaeimi.github.io/odin-calc/
 
